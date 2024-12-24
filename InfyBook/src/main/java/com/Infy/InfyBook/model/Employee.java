@@ -12,16 +12,19 @@ public class Employee extends BaseModel{
     private String password;
     private String role;
 
+    private int dueAmount;
+
 
     public Employee() {
     }
 
-    public Employee(int empId, String name, String email, String password, String role) {
+    public Employee(int empId, String name, String email, String password, String role, int dueAmount) {
         this.empId = empId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.dueAmount = dueAmount;
     }
 
     public int getEmpId() {
@@ -64,16 +67,24 @@ public class Employee extends BaseModel{
         this.role = role;
     }
 
+    public int getDueAmount() {
+        return dueAmount;
+    }
+
+    public void setDueAmount(int dueAmount) {
+        this.dueAmount = dueAmount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return getEmpId() == employee.getEmpId() && Objects.equals(getName(), employee.getName()) && Objects.equals(getEmail(), employee.getEmail()) && Objects.equals(getPassword(), employee.getPassword()) && Objects.equals(getRole(), employee.getRole());
+        return getEmpId() == employee.getEmpId() && getDueAmount() == employee.getDueAmount() && Objects.equals(getName(), employee.getName()) && Objects.equals(getEmail(), employee.getEmail()) && Objects.equals(getPassword(), employee.getPassword()) && Objects.equals(getRole(), employee.getRole());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEmpId(), getName(), getEmail(), getPassword(), getRole());
+        return Objects.hash(getEmpId(), getName(), getEmail(), getPassword(), getRole(), getDueAmount());
     }
 
     @Override
@@ -84,6 +95,7 @@ public class Employee extends BaseModel{
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", dueAmount=" + dueAmount +
                 '}';
     }
 }

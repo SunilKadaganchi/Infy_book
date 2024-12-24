@@ -8,6 +8,7 @@ public class InfyBookApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InfyBookApplication.class, args);
+		System.out.println("Welcome");
 	}
 
 }

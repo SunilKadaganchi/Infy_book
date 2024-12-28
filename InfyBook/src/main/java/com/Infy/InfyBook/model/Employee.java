@@ -11,11 +11,11 @@ public class Employee extends BaseModel{
     private String email;
     private String password;
     private String role;
-
     private int dueAmount;
 
 
     public Employee() {
+        this.dueAmount=0;
     }
 
     public Employee(int empId, String name, String email, String password, String role, int dueAmount) {

@@ -1,32 +1,12 @@
-package com.Infy.InfyBook.model;
+package com.Infy.InfyBook.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-
-
-@Entity
-public class Book extends BaseModel{
-
+public class BookRequestDTO {
     private String title;
     private String author;
     private String description;
     private int bookAvailableCount;
     private int rating;
-    @ManyToOne
-    private Category category;
-
-    public Book() {
-    }
-
-    public Book(String title, String author, String description, int bookAvailableCount, int rating, Category category) {
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        this.bookAvailableCount = bookAvailableCount;
-        this.rating = rating;
-        this.category = category;
-    }
+    private String categoryName;
 
     public String getTitle() {
         return title;
@@ -68,11 +48,11 @@ public class Book extends BaseModel{
         this.rating = rating;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
